@@ -46,6 +46,7 @@ h1{
     align-items:center;
     justify-content: center;
     flex-wrap: wrap;
+    cursor:pointer;
 }
 
 .stars{
@@ -73,12 +74,12 @@ h1{
     padding-bottom: 0.15em;
 }
 
-.goodnightText .goodnightLetter {
+.goodmorningText .goodmorningLetter {
     display: inline-block;
     line-height: 1em;
 }
     
-.goodnightText .text-wrapper {
+.goodmorningText .text-wrapper {
     display: inline-block;
     padding-top: 0.1em;
     padding-right: 0.05em;
@@ -111,11 +112,12 @@ h1{
     justify-content: space-between;
 }
 
-.goodnight{
+.goodmorning{
     display: flex;
     height: 400vh;
     width: 100%;
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 150vh;
+    cursor: pointer;
 }

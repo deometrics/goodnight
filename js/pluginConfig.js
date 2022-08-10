@@ -81,19 +81,11 @@ var starsAnimation = anime({
     autoplay: false,
 });
 
-var starsTwinkle = anime.timeline({loop: true, direction: 'alternate'});
-starsTwinkle
-.add({
-    targets: '.stars',
-    perspective:[-10,10],
-    easing:'easeInOutBounce',
-});
-
 var textWrapper = document.querySelector('.introText .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-var textAnimation = anime.timeline({loop: false});
-textAnimation
+var goodNightAnimation = anime.timeline({loop: false});
+goodNightAnimation
   .add({
     targets: '.introText .letter',
     scale: [0.3,1],
@@ -101,7 +93,7 @@ textAnimation
     translateZ: 0,
     easing: "easeOutBounce",
     duration: 800,
-    delay: 4000
+    delay: anime.stagger(30, {start:4000})
 });
 
 (function () {
@@ -120,25 +112,47 @@ textAnimation
         }
     });
 
-    var textWrapper2 = document.querySelector('.goodnightText .goodnightletters');
-    textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='goodnightLetter'>$&</span>");
+    var textWrapper2 = document.querySelector('.goodmorningText .goodmorningletters');
+    textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='goodmorningLetter'>$&</span>");
+
+    var goodMorningAnimation = anime.timeline({loop: false});
 
     scroll.on('call', func => {
-        if(func == "goodnight"){
-            var textAnimation = anime.timeline({loop: false});
-            textAnimation
+        if(func == "goodmorning"){
+            goodMorningAnimation
             .add({
-                targets: '.goodnightText .goodnightLetter',
+                targets: '.goodmorningText .goodmorningLetter',
                 scale: [0.3,1],
                 opacity: [0,1],
                 translateZ: 0,
                 easing: "easeOutBounce",
                 duration: 1000,
-                delay: 1000
+                delay: anime.stagger(30, {start:1000}),
             });
         }
     });
+
+    const target = document.querySelector('#scrollTarget');
+    const nightEvent = document.querySelector('.content')
+    const dayEvent = document.querySelector('.goodmorning')
+
+
+    nightEvent.addEventListener('click', () =>{
+        scroll.scrollTo(target, {
+            duration: 3000,
+            easing: [0.42, 0.0, 0.58, 1.0]
+        });
+    });
+    dayEvent.addEventListener('click', () =>{
+        scroll.scrollTo('top', {
+            duration: 3000,
+            easing: [0.42, 0.0, 0.58, 1.0]
+        });
+    });
 })();
+
+
+
 
 
 
