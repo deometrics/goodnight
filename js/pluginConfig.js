@@ -99,7 +99,15 @@ goodNightAnimation
 (function () {
     var scroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
-        smooth: true
+        smooth: true,
+        mobile: {
+            breakpoint: 0,
+            smooth: true
+        },
+        tablet: {
+            breakpoint: 0,
+            smooth: true
+        }
     });
 
     scroll.on('scroll', (args) => {
