@@ -39,6 +39,10 @@ h1{
    color: white;
 }
 
+.introText{
+    color:#36454F;
+}
+
 .content{
     width: 100vw;
     height:100vh;
