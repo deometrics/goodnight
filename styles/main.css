@@ -41,6 +41,20 @@ h1{
 
 .introText{
     color:#36454F;
+    transition: transform 300ms ease-in-out;
+}
+
+.introText:hover{
+    transform: scale(1.08);
+}
+
+.goodmorningText{
+    color: white;
+    transition: transform 300ms ease-in-out;
+}
+
+.goodmorningText:hover{
+    transform: scale(1.08);
 }
 
 .content{
@@ -93,7 +107,7 @@ h1{
 .sun{
     height:6rem;
     width:6rem;
-    background:yellow;
+    background:#F4EA56;
     margin:2rem;
     border-radius: 100%;
 }
